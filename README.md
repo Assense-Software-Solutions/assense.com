@@ -7,7 +7,7 @@ Static HTML and CSS, with no JavaScript, cookies, analytics, remote fonts or rem
 - `public/en/` and `public/de/`: localized home pages and legal pages.
 - `public/index.html`: English fallback for static hosts without request-header routing.
 - `public/assets/site.css`: shared styles.
-- `public/assets/*.svg`: temporary copies of the old website's photographs. Each SVG contains a JPEG data URI so the site remains self-contained. Replace these files with the selected final photographs and update the image paths in the three home pages.
+- `public/images/`: selected photographs from the supplied image set. The hero uses `window_view.png`, Development uses `assembly.png`, and Operations uses `operations_1.jpeg`. The remaining source images stay in the repository's `images/` directory as alternatives.
 - `public/assense_logo_dark.png` and `public/assense_logo_a_grau_eckig.png`: supplied logos.
 
 The footer offers explicit English/German links. The `lang` and `hreflang` attributes identify the translations. There is no top navigation.
@@ -22,7 +22,7 @@ Serve the `public/` directory as the document root. Update the Caddy path and do
 
 - Confirm the hosting provider, server-log behavior and retention, then replace the marked introductory notice and incomplete hosting description on both privacy pages.
 - Verify the company details on both imprint pages, especially the managing director, register number and VAT ID. The details were adapted from the old site.
-- Replace the temporary photography once the final images are chosen.
+- Review the chosen crops on desktop and mobile after deployment. The source images are copied unchanged into `public/images/`.
 - Test the deployed response for `Accept-Language: de-DE,de;q=0.9`, `en-US`, and `de;q=0`, and check direct `/en/` and `/de/` links.
 
 No cookie banner is needed for the code in this repository. Review this assumption if third-party services, analytics or client-side storage are added later.
