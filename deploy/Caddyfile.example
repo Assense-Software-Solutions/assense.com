@@ -1,0 +1,17 @@
+# Serve the public/ directory from a host with Caddy.
+# Replace this path with the deployed checkout's public directory.
+assense.com {
+    root * /srv/assense.com/public
+
+    @german {
+        path /
+        header_regexp Accept-Language "(?i)(^|,)[[:space:]]*de(-[a-z0-9]+)*([[:space:]]*;[[:space:]]*q=(1(\.0+)?|0\.[0-9]*[1-9][0-9]*))?[[:space:]]*(,|$)"
+    }
+
+    route {
+        header / Vary Accept-Language
+        redir @german /de/ 302
+        redir / /en/ 302
+        file_server
+    }
+}
