@@ -18,6 +18,20 @@ Plain static files cannot read the browser's `Accept-Language` request header. A
 
 Serve the `public/` directory as the document root. Update the Caddy path and domain to match the deployment. The Caddy example has no access-log directive. Verify its configuration with the Caddy version used for deployment.
 
+## Container image
+
+`Dockerfile` packages the static files with the official Caddy image. The container listens on HTTP port 80 and is intended to run behind a TLS reverse proxy. Its configuration in `deploy/Caddyfile.container` performs the same language selection as the direct-host example.
+
+GitHub Actions builds the image and runs HTTP smoke tests on pull requests and pushes to `main`. After the tests pass on `main`, it publishes `ghcr.io/assense-software-solutions/assense.com:latest` and a commit-specific `sha-<commit>` tag to GitHub Container Registry. The registry package's visibility follows the organization settings; publishing the image does not deploy the live domain.
+
+To try it locally with Docker:
+
+```sh
+docker build -t assense-site:test .
+docker run --rm -p 8080:80 assense-site:test
+# Open http://localhost:8080/
+```
+
 ## Before publication
 
 - Confirm the hosting provider, server-log behavior and retention, then replace the marked introductory notice and incomplete hosting description on both privacy pages.
