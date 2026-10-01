@@ -554,3 +554,65 @@ h1 em {
   padding: 1rem 1.25rem;
   border-left: 4px solid #0d6e82;
 }
+
+/* Longer editorial copy on the home pages. */
+.home .hero-grid > *, .home .approach-grid > *, .home .service-row > * {
+  min-width: 0;
+}
+.home h1 {
+  font-size: clamp(2.5rem, 4.3vw, 4.5rem);
+  max-width: 18ch;
+  margin: 1.5rem 0 2rem;
+}
+.home .hero-bottom {
+  display: block;
+}
+.home .lede {
+  max-width: 48ch;
+}
+.home .arrow-link {
+  margin-top: 1.5rem;
+}
+.home .approach h2, .home .autonomy h2 {
+  font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+  max-width: 22ch;
+}
+.home .approach-copy > p:not(.micro), .home .autonomy-copy p {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  max-width: 54ch;
+  font-weight: 400;
+}
+.home .approach-copy p + p, .home .autonomy-copy p + p,
+.home .service-copy p + p {
+  margin-top: 1rem;
+}
+.home .service-row, .home .service-row.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+.home .service-copy h2 {
+  font-size: clamp(2.1rem, 3.2vw, 3.5rem);
+  max-width: 22ch;
+  margin: 1.5rem 0;
+}
+.home .service-copy > p:not(.service-no) {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #4d5b60;
+  max-width: 54ch;
+}
+.home .autonomy {
+  padding: 4rem 0;
+  background: #e5eeec;
+}
+.home .autonomy .kicker {
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 700px) {
+  .home .service-row, .home .service-row.reverse {
+    grid-template-columns: 1fr;
+  }
+  .home .hero-copy {
+    min-height: auto;
+  }
+}
