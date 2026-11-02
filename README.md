@@ -1,16 +1,24 @@
 # Assense website
 
-Static HTML and CSS, with no JavaScript, cookies, analytics, remote fonts or remote assets.
+Static HTML and CSS with a small local script for the appearance preference. No cookies, analytics, remote fonts or remote assets.
 
 ## Structure
 
 - `public/en/` and `public/de/`: localized home pages and legal pages.
 - `public/index.html`: English fallback for static hosts without request-header routing.
-- `public/assets/site.css`: shared styles.
+- `public/assets/site.css`: website composition and explicit theme overrides.
+- `public/assets/assense.css`: shared corporate design, adaptive color roles and local Inter fonts in `public/assets/fonts/` (license included).
+- `public/assets/theme.js`: System / Light / Dark preference on every page.
 - `public/images/`: selected photographs from the supplied image set. The hero uses `window_view.png`, Development uses `assembly.png`, and Operations uses `operations_1.jpeg`. The remaining source images stay in the repository's `images/` directory as alternatives.
 - `public/assense_logo_dark.png` and `public/assense_logo_a_grau_eckig.png`: supplied logos.
 
 The footer offers explicit English/German links. The `lang` and `hreflang` attributes identify the translations. There is no top navigation.
+
+## Appearance
+
+The default follows `prefers-color-scheme` and updates automatically when the system appearance changes, including with JavaScript disabled. A labelled native selector in the masthead offers System / Light / Dark (localized in German). Explicit choices override the system and are stored in `localStorage` under `assense-theme`; System removes the saved choice. Changes synchronize across tabs on the same origin. If storage is blocked, the current page can still change appearance. The script applies a saved preference before styles load to avoid a flash of the wrong theme; the selector stays hidden if JavaScript is unavailable.
+
+Colors and local Inter files come from the [Assense corporate-design skill](https://github.com/Assense-Software-Solutions/corporate-design/tree/6d971bb453319cd8f5a32ed4ef80a06541ee0679/assense-design). The original logo stays on a paper backing, photographs stay grayscale, and the contact/footer bands retain their brand colors. Print always uses light roles and hides the selector.
 
 ## Hosting and language selection
 
@@ -39,4 +47,4 @@ docker run --rm -p 8080:80 assense-site:test
 - Review the chosen crops on desktop and mobile after deployment. The source images are copied unchanged into `public/images/`.
 - Test the deployed response for `Accept-Language: de-DE,de;q=0.9`, `en-US`, and `de;q=0`, and check direct `/en/` and `/de/` links.
 
-No cookie banner is needed for the code in this repository. Review this assumption if third-party services, analytics or client-side storage are added later.
+The appearance preference is the only client-side storage used by this code; both privacy pages describe its purpose and removal. Review consent requirements when adding other storage, third-party services or analytics.

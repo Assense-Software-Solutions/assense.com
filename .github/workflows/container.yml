@@ -19,6 +19,8 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
+      - name: Test appearance preference
+        run: node --test scripts/theme.test.cjs
       - name: Build Caddy image
         run: docker build --tag assense-site:test .
       - name: Smoke test

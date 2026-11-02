@@ -1,3 +1,5 @@
+@import url("assense.css");
+
 * {
   box-sizing: border-box;
 }
@@ -8,9 +10,9 @@ html {
 
 body {
   margin: 0;
-  background: #f5f5f0;
-  color: #101721;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--assense-canvas);
+  color: var(--assense-text);
+  font-family: var(--assense-font);
   line-height: 1.5;
 }
 
@@ -23,9 +25,10 @@ a {
   color: inherit;
 }
 
-a:focus-visible {
-  outline: 3px solid #f9b300;
+:focus-visible {
+  outline: 3px solid var(--assense-link);
   outline-offset: 4px;
+  box-shadow: 0 0 0 7px var(--assense-yellow);
 }
 
 h1, h2, h3, p {
@@ -43,7 +46,7 @@ h1, h2, h3 {
 }
 
 .mast {
-  background: #f5f5f0;
+  background: var(--assense-canvas);
 }
 
 .mast-inner {
@@ -62,16 +65,16 @@ h1, h2, h3 {
   font-size: .72rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .mast-note {
-  color: #526367;
+  color: var(--assense-secondary);
   text-align: right;
 }
 
 .hero {
-  background: #f5f5f0;
+  background: var(--assense-canvas);
 }
 
 .hero-grid {
@@ -88,7 +91,7 @@ h1, h2, h3 {
 }
 
 .kicker {
-  color: #0d6e82;
+  color: var(--assense-label);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -104,13 +107,13 @@ h1, h2, h3 {
 h1 {
   font-size: clamp(4.6rem, 7.5vw, 8rem);
   max-width: 10ch;
-  font-weight: 750;
+  font-weight: 700;
   margin: .6rem 0;
 }
 
 h1 em {
   font-style: normal;
-  color: #103b79;
+  color: var(--assense-link);
 }
 
 .hero-bottom {
@@ -124,11 +127,11 @@ h1 em {
   font-size: clamp(1.08rem, 1.55vw, 1.4rem);
   max-width: 30ch;
   line-height: 1.42;
-  color: #48545a;
+  color: var(--assense-secondary);
 }
 
 .arrow-link {
-  font-weight: 750;
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
   display: inline-flex;
@@ -175,7 +178,7 @@ h1 em {
   font-size: .8rem;
   text-transform: uppercase;
   letter-spacing: .15em;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .ticker b {
@@ -185,7 +188,7 @@ h1 em {
 }
 
 .approach {
-  background: #77bfbb;
+  background: var(--assense-quote);
   padding: 5.2rem 0 5.6rem;
   position: relative;
 }
@@ -202,7 +205,7 @@ h1 em {
 }
 
 .approach .kicker {
-  color: #103b79;
+  color: var(--assense-link);
   margin-bottom: 2.1rem;
 }
 
@@ -220,16 +223,16 @@ h1 em {
 
 .approach-rule {
   height: 2px;
-  background: #103b79;
+  background: var(--assense-link);
   margin: 2.2rem 0 1rem;
 }
 
 .approach-copy .micro {
-  color: #103b79;
+  color: var(--assense-link);
 }
 
 .services {
-  background: #f5f5f0;
+  background: var(--assense-canvas);
   padding: 5rem 0 3.5rem;
 }
 
@@ -252,7 +255,7 @@ h1 em {
 
 .services-heading p:last-child {
   max-width: 40ch;
-  color: #58646a;
+  color: var(--assense-secondary);
   font-size: 1.12rem;
   justify-self: end;
 }
@@ -261,11 +264,11 @@ h1 em {
   display: grid;
   grid-template-columns: .82fr 1.18fr;
   min-height: 360px;
-  border-top: 2px solid #101721;
+  border-top: 2px solid var(--assense-rule);
 }
 
 .service-row:last-child {
-  border-bottom: 2px solid #101721;
+  border-bottom: 2px solid var(--assense-rule);
 }
 
 .service-row.reverse {
@@ -284,10 +287,10 @@ h1 em {
 }
 
 .service-no {
-  color: #0d6e82;
+  color: var(--assense-label);
   font-size: .8rem;
   letter-spacing: .13em;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .service-copy h3 {
@@ -298,7 +301,7 @@ h1 em {
 .service-copy p:last-child {
   font-size: 1.05rem;
   line-height: 1.5;
-  color: #4d5b60;
+  color: var(--assense-secondary);
   max-width: 51ch;
 }
 
@@ -509,7 +512,7 @@ h1 em {
 }
 
 .legal {
-  background: #f5f5f0;
+  background: var(--assense-canvas);
   min-height: 65vh;
   padding: 3.5rem 0 6rem;
 }
@@ -550,9 +553,9 @@ h1 em {
 }
 
 .legal-note {
-  background: #e5eeec;
+  background: var(--assense-surface);
   padding: 1rem 1.25rem;
-  border-left: 4px solid #0d6e82;
+  border-left: 4px solid var(--assense-label);
 }
 
 /* Longer editorial copy on the home pages. */
@@ -598,12 +601,12 @@ h1 em {
 .home .service-copy > p:not(.service-no) {
   font-size: 1.05rem;
   line-height: 1.55;
-  color: #4d5b60;
+  color: var(--assense-secondary);
   max-width: 54ch;
 }
 .home .autonomy {
   padding: 4rem 0;
-  background: #e5eeec;
+  background: var(--assense-surface);
 }
 .home .autonomy .kicker {
   margin-bottom: 1.5rem;
@@ -615,4 +618,111 @@ h1 em {
   .home .hero-copy {
     min-height: auto;
   }
+}
+
+/* The shared base supplies brand tokens, fonts and automatic dark mode.
+   These composition rules retain the website's full-width editorial sections. */
+body > .mast {
+  display: block;
+  min-block-size: 0;
+  padding: 0;
+  border: 0;
+}
+body > main, body > .footer {
+  padding-inline: 0;
+}
+main.home {
+  padding-block: 0;
+}
+.home > section {
+  border-block-start: 0;
+}
+.home > .hero {
+  padding-block: 0;
+}
+.mast-inner {
+  min-height: 104px;
+  height: auto;
+  padding-block: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+.mast img {
+  /* Original artwork stays on paper, including in dark mode. */
+  background: var(--assense-paper);
+}
+.mast-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+}
+.theme-picker {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0;
+  font-size: .85rem;
+}
+.theme-picker select {
+  inline-size: auto;
+  min-block-size: 2.75rem;
+  padding: .5rem;
+}
+.footer-links {
+  flex-wrap: wrap;
+}
+@media (max-width: 700px) {
+  .mast-inner {
+    min-height: 76px;
+    gap: .75rem 1rem;
+  }
+  .mast-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* Explicit choices override the automatic roles only on screen. */
+@media screen {
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --assense-canvas: var(--assense-paper);
+    --assense-text: var(--assense-ink);
+    --assense-link: var(--assense-blue);
+    --assense-label: var(--assense-accent);
+    --assense-secondary: var(--assense-muted);
+    --assense-surface: var(--assense-wash);
+    --assense-quote: var(--assense-teal);
+    --assense-field: #fff;
+    --assense-rule: var(--assense-ink);
+    --assense-control-border: var(--assense-border);
+    --assense-action: var(--assense-blue);
+    --assense-action-text: #fff;
+    --assense-action-hover: var(--assense-navy);
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --assense-canvas: var(--assense-ink);
+    --assense-text: var(--assense-paper);
+    --assense-link: #a2c8ff;
+    --assense-label: var(--assense-teal);
+    --assense-secondary: #b9c7c9;
+    --assense-surface: #1b2c38;
+    --assense-quote: #153f4c;
+    --assense-field: #162330;
+    --assense-rule: #82999d;
+    --assense-control-border: #82999d;
+    --assense-action: var(--assense-teal);
+    --assense-action-text: var(--assense-ink);
+    --assense-action-hover: #a2d9d5;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible { outline-color: Highlight; box-shadow: none; }
+}
+@media print {
+  .theme-picker { display: none; }
+  body { background: white; color: black; }
 }
