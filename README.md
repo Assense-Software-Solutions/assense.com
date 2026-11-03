@@ -18,7 +18,7 @@ The footer groups the explicit English/German links with the appearance selector
 
 The default follows `prefers-color-scheme` and updates automatically when the system appearance changes, including with JavaScript disabled. A compact labelled native selector in the footer, directly beside EN / DE, offers System / Light / Dark (localized in German). Explicit choices override the system and are stored in `localStorage` under `assense-theme`; System removes the saved choice. Changes synchronize across tabs on the same origin. If storage is blocked, the current page can still change appearance. The script applies a saved preference before styles load to avoid a flash of the wrong theme; the selector stays hidden if JavaScript is unavailable.
 
-Colors and local Inter files come from the [Assense corporate-design skill](https://github.com/Assense-Software-Solutions/corporate-design/tree/6d971bb453319cd8f5a32ed4ef80a06541ee0679/assense-design). The original logo stays on a paper backing, photographs stay grayscale, and the contact/footer bands retain their brand colors. Print always uses light roles and hides the selector.
+Colors and local Inter files come from the [Assense corporate-design skill](https://github.com/Assense-Software-Solutions/corporate-design/tree/6d971bb453319cd8f5a32ed4ef80a06541ee0679/assense-design). The original logo sits within a continuous paper-colored masthead in both schemes, with a fixed muted masthead note, photographs stay grayscale, and the contact/footer bands retain their brand colors. Print always uses light roles and hides the selector.
 
 ## Hosting and language selection
 
