@@ -1,0 +1,187 @@
+/* Assense corporate design. Classless base and documented application components. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/Inter-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/Inter-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/Inter-Italic.ttf") format("truetype"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 700; font-display: swap; src: url("fonts/Inter-BoldItalic.ttf") format("truetype"); }
+@layer assense {
+  :root {
+    color-scheme: light;
+    --assense-paper: #f5f5f0;
+    --assense-ink: #101721;
+    --assense-blue: #103b79;
+    --assense-navy: #020f2e;
+    --assense-teal: #77bfbb;
+    --assense-wash: #e5eeec;
+    --assense-accent: #0d6e82;
+    --assense-yellow: #f9b300;
+    --assense-muted: #4d5b60;
+    --assense-border: #526367;
+    /* Component roles preserve the source palette in light mode. */
+    --assense-canvas: var(--assense-paper);
+    --assense-text: var(--assense-ink);
+    --assense-link: var(--assense-blue);
+    --assense-label: var(--assense-accent);
+    --assense-secondary: var(--assense-muted);
+    --assense-surface: var(--assense-wash);
+    --assense-quote: var(--assense-teal);
+    --assense-field: #fff;
+    --assense-rule: var(--assense-ink);
+    --assense-control-border: var(--assense-border);
+    --assense-action: var(--assense-blue);
+    --assense-action-text: #fff;
+    --assense-action-hover: var(--assense-navy);
+    --assense-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --assense-width: 1350px;
+    --assense-gutter: clamp(1rem, 3vw, 3rem);
+    --assense-space: 1rem;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-block: 1rem; }
+  body { margin: 0; background: var(--assense-canvas); color: var(--assense-text); font: 1.0625rem/1.55 var(--assense-font); overflow-wrap: anywhere; }
+  [hidden] { display: none !important; }
+  :where(h1,h2,h3,h4,h5,h6,p,ul,ol,dl,figure,blockquote,pre,table,fieldset,details) { margin: 0 0 1rem; }
+  :where(h1,h2,h3,h4,h5,h6) { line-height: 1.04; letter-spacing: -.055em; font-weight: 700; text-wrap: balance; }
+  h1 { font-size: clamp(2.5rem, 4.3vw, 4.5rem); max-inline-size: 18ch; margin-block: 1.5rem 2rem; }
+  h2 { font-size: clamp(2.1rem, 3.2vw, 3.5rem); max-inline-size: 22ch; margin-block: 2rem 1.5rem; }
+  h3 { font-size: clamp(1.6rem, 2.3vw, 2.4rem); margin-block-start: 1.5rem; }
+  h4 { font-size: 1.4rem; }
+  h5 { font-size: 1.2rem; letter-spacing: -.03em; }
+  h6 { font-size: 1rem; letter-spacing: -.02em; }
+  h1 em { color: var(--assense-link); font-style: normal; }
+  p { max-inline-size: 65ch; }
+  small, figcaption { font-size: .85rem; }
+  :where(figcaption,dt) { color: var(--assense-secondary); }
+  strong, b { font-weight: 700; }
+  a { color: var(--assense-link); text-underline-offset: .25em; text-decoration-thickness: .08em; }
+  a:hover { text-decoration-thickness: .16em; }
+  a[aria-current="page"] { font-weight: 700; text-decoration-thickness: .18em; }
+  :focus-visible { outline: 3px solid var(--assense-link); outline-offset: 4px; box-shadow: 0 0 0 7px var(--assense-yellow); }
+  ::selection { background: var(--assense-yellow); color: var(--assense-ink); }
+  :where(body > header, body > main, body > footer) { padding-inline: max(var(--assense-gutter), calc((100% - var(--assense-width)) / 2)); }
+  body > header { min-block-size: 104px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; padding-block: 1.5rem; border-block-end: 2px solid var(--assense-rule); }
+  body > header img { inline-size: 225px; block-size: auto; background: var(--assense-paper); padding: .5rem; }
+  body > header > p { margin: 0; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--assense-secondary); }
+  main { min-block-size: 65vh; padding-block: clamp(2rem, 5vw, 5rem); }
+  main > :first-child { margin-block-start: 0; }
+  :where(main > section, main > article) { padding-block: clamp(2rem, 5vw, 5rem); border-block-start: 2px solid var(--assense-rule); }
+  :where(main > section, main > article):first-child { border-block-start: 0; padding-block-start: 0; }
+  :where(section,article) > :last-child { margin-block-end: 0; }
+  hgroup { margin-block-end: 2rem; }
+  hgroup > p { color: var(--assense-label); font-size: .8rem; letter-spacing: .13em; font-weight: 700; text-transform: uppercase; }
+  hgroup > p:first-child::before { content: ""; display: inline-block; inline-size: 27px; block-size: 2px; margin-inline-end: 1rem; vertical-align: middle; background: currentColor; }
+  nav ul { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.7rem; list-style: none; padding: 0; margin: 0; }
+  /* Navigation uses gap; prose-list margins would offset flex item centers. */
+  nav ul > li { margin-block-start: 0; }
+  nav a { font-weight: 700; }
+  body > footer { padding-block: 1.5rem; background: var(--assense-navy); color: #b9c7c9; font-size: .85rem; }
+  body > footer a { color: inherit; }
+  body > footer a:hover, body > footer a[aria-current="page"] { color: var(--assense-yellow); }
+  body > footer :last-child { margin-block-end: 0; }
+  aside { background: var(--assense-surface); border-inline-start: 4px solid var(--assense-label); padding: 1.25rem; margin-block: 1.5rem; }
+  aside > :last-child { margin-block-end: 0; }
+  blockquote { background: var(--assense-quote); border-inline-start: 4px solid var(--assense-link); padding: clamp(1rem, 3vw, 2rem); }
+  blockquote p { font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.35; }
+  blockquote > :last-child { margin-block-end: 0; }
+  hr { border: 0; border-block-start: 2px solid var(--assense-rule); margin-block: 2rem; }
+  :where(ul,ol) { padding-inline-start: 1.5rem; }
+  li + li { margin-block-start: .4rem; }
+  li > :where(ul,ol) { margin-block: .5rem 0; }
+  li::marker { color: var(--assense-label); font-weight: 700; }
+  dt { font-weight: 700; }
+  dd { margin-inline-start: 0; margin-block-end: 1rem; }
+  img, video, svg { max-inline-size: 100%; block-size: auto; }
+  figure > img { display: block; }
+  img.assense-editorial-image { filter: grayscale(1); }
+  figcaption { margin-block-start: .6rem; }
+  address { font-style: normal; }
+  mark { background: var(--assense-yellow); color: var(--assense-ink); padding-inline: .15em; }
+  :where(code,kbd,samp,pre) { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .92em; }
+  :where(code,kbd,samp) { background: var(--assense-surface); color: var(--assense-text); padding: .15em .3em; }
+  kbd { border: 1px solid var(--assense-control-border); }
+  pre { overflow-x: auto; padding: 1.25rem; background: var(--assense-navy); color: var(--assense-paper); }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  table { border-collapse: collapse; inline-size: 100%; font-variant-numeric: tabular-nums; }
+  caption { text-align: start; font-weight: 700; margin-block-end: .75rem; }
+  th, td { text-align: start; vertical-align: top; padding: .8rem; border-block-end: 1px solid var(--assense-control-border); }
+  thead { background: transparent; color: var(--assense-text); border-block-end: 2px solid var(--assense-rule); }
+  tbody :where(th,td) { border-block-end-color: color-mix(in srgb, var(--assense-control-border) 30%, var(--assense-canvas)); }
+  tbody tr:where(:hover,:focus-within) { background: var(--assense-surface); }
+  :where(td,th) small { display: block; color: var(--assense-secondary); font-weight: 400; }
+  tfoot { font-weight: 700; border-block-start: 2px solid var(--assense-rule); }
+  form { max-inline-size: 48rem; }
+  fieldset { min-inline-size: 0; border: 1px solid var(--assense-control-border); padding: 1.25rem; }
+  legend { padding-inline: .5rem; font-weight: 700; }
+  label { display: block; margin-block: .8rem .4rem; font-weight: 700; }
+  :where(input,select,textarea,button) { font: inherit; border-radius: 0; max-inline-size: 100%; }
+  :where(input,select,textarea) { background: var(--assense-field); color: var(--assense-text); border: 1px solid var(--assense-control-border); padding: .75rem; min-block-size: 2.75rem; }
+  :where(input:not([type]),input[type="text"],input[type="email"],input[type="url"],input[type="tel"],input[type="password"],input[type="search"],input[type="number"],input[type="date"],input[type="datetime-local"],input[type="month"],input[type="week"],input[type="time"],select,textarea) { inline-size: 100%; }
+  textarea { min-block-size: 8rem; resize: vertical; }
+  ::placeholder { color: var(--assense-secondary); opacity: 1; }
+  :where(input[type="checkbox"],input[type="radio"]) { min-block-size: auto; inline-size: 1.2rem; block-size: 1.2rem; padding: 0; accent-color: var(--assense-link); vertical-align: middle; }
+  input[type="range"] { inline-size: 100%; padding: 0; accent-color: var(--assense-link); }
+  input[type="color"] { padding: .25rem; min-inline-size: 3rem; }
+  :where(input,textarea)[readonly] { background: var(--assense-surface); }
+  :where(input,select,textarea)[aria-invalid="true"], :where(input,select,textarea):user-invalid { border: 2px solid var(--assense-rule); outline: 2px solid var(--assense-yellow); outline-offset: 1px; }
+  :where(button,input[type="submit"],input[type="button"],input[type="reset"]) { display: inline-block; min-block-size: 2.75rem; padding: .75rem 1.25rem; border: 2px solid var(--assense-action); background: var(--assense-action); color: var(--assense-action-text); font-weight: 700; line-height: 1.3; cursor: pointer; }
+  :where(button[type="reset"],input[type="reset"]) { background: transparent; color: var(--assense-link); }
+  :where(button,input[type="submit"],input[type="button"],input[type="reset"]):hover:not(:disabled) { background: var(--assense-action-hover); border-color: var(--assense-action-hover); color: var(--assense-action-text); }
+  :where(button,input,select,textarea):disabled { opacity: .6; cursor: not-allowed; }
+  details { padding-block: 1rem; border-block: 1px solid var(--assense-control-border); }
+  details + details { border-block-start: 0; }
+  summary { cursor: pointer; font-weight: 700; color: var(--assense-link); }
+  details[open] > summary { margin-block-end: 1rem; }
+  dialog { background: var(--assense-canvas); color: var(--assense-text); border: 2px solid var(--assense-link); padding: clamp(1.25rem, 4vw, 3rem); max-inline-size: min(40rem, calc(100% - 2rem)); max-block-size: calc(100% - 2rem); overflow: auto; }
+  dialog::backdrop { background: rgb(2 15 46 / .7); }
+  :where(progress,meter) { accent-color: var(--assense-link); max-inline-size: 100%; }
+  /* Opt-in application composition; editorial pages retain their scale. */
+  main.assense-app { padding-block: 2rem; }
+  .assense-app h1 { font-size: clamp(2rem, 3vw, 3rem); margin-block: 0 1.5rem; }
+  .assense-app h2 { font-size: clamp(1.4rem, 2vw, 1.8rem); margin-block: 0 1rem; letter-spacing: -.03em; }
+  .assense-app > section { padding-block: 1.5rem; border-block-start-width: 1px; }
+  .assense-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr)); gap: 1rem 2rem; padding-block: 1rem; border-block: 1px solid var(--assense-control-border); }
+  .assense-stats dt { font-size: .9rem; font-weight: 400; }
+  .assense-stats dd { margin: .25rem 0 0; font-size: 2rem; font-weight: 700; line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .assense-chart { margin-block: 1.5rem; }
+  .assense-chart svg { display: block; inline-size: 100%; max-inline-size: 48rem; color: var(--assense-link); }
+  .assense-dropzone { padding: clamp(1.5rem, 4vw, 3rem); border: 2px dashed var(--assense-control-border); background: var(--assense-surface); text-align: center; }
+  .assense-dropzone p { margin-inline: auto; }
+  .assense-dropzone input[type="file"] { inline-size: 100%; background: var(--assense-canvas); }
+  .assense-dropzone.is-dragover { border-style: solid; border-color: var(--assense-link); outline: 3px solid var(--assense-link); outline-offset: 3px; }
+  .assense-dropzone.is-invalid { border-style: solid; border-color: var(--assense-rule); }
+  .assense-file-list { max-block-size: 14rem; overflow: auto; }
+  .assense-table-scroll { overflow-x: auto; margin-block: 1rem; }
+  .assense-table-scroll table { min-inline-size: 42rem; }
+  .assense-number { text-align: end; white-space: nowrap; }
+  @media screen and (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --assense-canvas: var(--assense-ink);
+      --assense-text: var(--assense-paper);
+      --assense-link: #a2c8ff;
+      --assense-label: var(--assense-teal);
+      --assense-secondary: #b9c7c9;
+      --assense-surface: #1b2c38;
+      --assense-quote: #153f4c;
+      --assense-field: #162330;
+      --assense-rule: #82999d;
+      --assense-control-border: #82999d;
+      --assense-action: var(--assense-teal);
+      --assense-action-text: var(--assense-ink);
+      --assense-action-hover: #a2d9d5;
+    }
+  }
+  @media (max-width: 700px) {
+    body > header { min-block-size: 76px; }
+    body > header img { inline-size: 160px; }
+    th, td { padding: .55rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  @media (forced-colors: active) { :focus-visible { outline-color: Highlight; box-shadow: none; } :where(button,input,select,textarea) { border: 1px solid ButtonText; } }
+  @media print {
+    body { background: white; color: black; font-size: 11pt; }
+    :where(body > header,body > main,body > footer) { padding: 0; }
+    :where(h1,h2,h3,h4,h5,h6) { break-after: avoid; }
+    :where(figure,blockquote,tr) { break-inside: avoid; }
+    body > footer, thead { background: white; color: black; }
+  }
+}

@@ -33,3 +33,6 @@ curl --silent --show-error --fail http://127.0.0.1:8080/de/imprint/ >/dev/null
 curl --silent --show-error --fail http://127.0.0.1:8080/en/privacy/ >/dev/null
 curl --silent --show-error --fail http://127.0.0.1:8080/assets/site.css >/dev/null
 curl --silent --show-error --fail http://127.0.0.1:8080/images/window_view.png >/dev/null
+curl --silent --show-error --fail http://127.0.0.1:8080/assets/assense.css >/dev/null
+curl --silent --show-error --fail http://127.0.0.1:8080/assets/theme.js >/dev/null
+curl --silent --show-error --fail http://127.0.0.1:8080/assets/fonts/Inter-Regular.ttf >/dev/null

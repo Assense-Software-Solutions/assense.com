@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Impressum — Assense</title>
+    <script src="../../assets/theme.js"></script>
     <link rel="stylesheet" href="../../assets/site.css">
     <link rel="alternate" hreflang="en" href="https://assense.com/en/imprint/">
     <link rel="alternate" hreflang="de" href="https://assense.com/de/imprint/">
@@ -12,7 +13,17 @@
     <header class="mast">
       <div class="wrap mast-inner">
         <a href="../../de/" aria-label="Assense — Zur Startseite"><img src="../../assense_logo_dark.png" alt="Assense"></a>
-        <p class="mast-note">Softwarelösungen · Hamburg</p>
+        <div class="mast-actions">
+          <p class="mast-note">Softwarelösungen · Hamburg</p>
+          <label class="theme-picker" hidden>
+            Darstellung
+            <select name="theme">
+              <option value="system">System</option>
+              <option value="light">Hell</option>
+              <option value="dark">Dunkel</option>
+            </select>
+          </label>
+        </div>
       </div>
     </header>
     <main class="legal">
