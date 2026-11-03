@@ -12,11 +12,11 @@ Static HTML and CSS with a small local script for the appearance preference. No 
 - `public/images/`: selected photographs from the supplied image set. The hero uses `window_view.png`, Development uses `assembly.png`, and Operations uses `operations_1.jpeg`. The remaining source images stay in the repository's `images/` directory as alternatives.
 - `public/assense_logo_dark.png` and `public/assense_logo_a_grau_eckig.png`: supplied logos.
 
-The footer offers explicit English/German links. The `lang` and `hreflang` attributes identify the translations. There is no top navigation.
+The footer groups the explicit English/German links with the appearance selector. The selector uses the footer typography, a flat navy surface and yellow emphasis matching the active language; the group wraps on narrow screens. It retains a visible label, native keyboard controls and focus indication, and is hidden without JavaScript and in print. The `lang` and `hreflang` attributes identify the translations. There is no top navigation.
 
 ## Appearance
 
-The default follows `prefers-color-scheme` and updates automatically when the system appearance changes, including with JavaScript disabled. A labelled native selector in the masthead offers System / Light / Dark (localized in German). Explicit choices override the system and are stored in `localStorage` under `assense-theme`; System removes the saved choice. Changes synchronize across tabs on the same origin. If storage is blocked, the current page can still change appearance. The script applies a saved preference before styles load to avoid a flash of the wrong theme; the selector stays hidden if JavaScript is unavailable.
+The default follows `prefers-color-scheme` and updates automatically when the system appearance changes, including with JavaScript disabled. A compact labelled native selector in the footer, directly beside EN / DE, offers System / Light / Dark (localized in German). Explicit choices override the system and are stored in `localStorage` under `assense-theme`; System removes the saved choice. Changes synchronize across tabs on the same origin. If storage is blocked, the current page can still change appearance. The script applies a saved preference before styles load to avoid a flash of the wrong theme; the selector stays hidden if JavaScript is unavailable.
 
 Colors and local Inter files come from the [Assense corporate-design skill](https://github.com/Assense-Software-Solutions/corporate-design/tree/6d971bb453319cd8f5a32ed4ef80a06541ee0679/assense-design). The original logo stays on a paper backing, photographs stay grayscale, and the contact/footer bands retain their brand colors. Print always uses light roles and hides the selector.
 

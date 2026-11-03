@@ -651,35 +651,54 @@ main.home {
   /* Original artwork stays on paper, including in dark mode. */
   background: var(--assense-paper);
 }
-.mast-actions {
-  display: flex;
+/* Keep language and appearance together as quiet footer preferences.
+   The native labelled select retains keyboard/touch behavior and focus states. */
+.footer-inner, .footer-links {
   align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: .5rem 1.5rem;
-}
-.theme-picker {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  margin: 0;
-  font-size: .85rem;
-}
-.theme-picker select {
-  inline-size: auto;
-  min-block-size: 2.75rem;
-  padding: .5rem;
 }
 .footer-links {
   flex-wrap: wrap;
+}
+.footer-preferences {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+}
+.footer .theme-picker {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  margin: 0;
+  font: inherit;
+  white-space: nowrap;
+}
+.footer .theme-picker select {
+  inline-size: auto;
+  min-block-size: 2.75rem;
+  padding: .25rem;
+  border: 0;
+  border-radius: 0;
+  background: var(--assense-navy);
+  color: var(--assense-yellow);
+  color-scheme: dark;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.footer .theme-picker select:hover {
+  text-decoration: underline;
+  text-underline-offset: .25em;
+}
+@media (forced-colors: active) {
+  .footer .theme-picker select {
+    border: 1px solid ButtonText;
+  }
 }
 @media (max-width: 700px) {
   .mast-inner {
     min-height: 76px;
     gap: .75rem 1rem;
-  }
-  .mast-actions {
-    justify-content: flex-start;
   }
 }
 
@@ -723,6 +742,6 @@ main.home {
   :focus-visible { outline-color: Highlight; box-shadow: none; }
 }
 @media print {
-  .theme-picker { display: none; }
+  .footer .theme-picker { display: none; }
   body { background: white; color: black; }
 }
