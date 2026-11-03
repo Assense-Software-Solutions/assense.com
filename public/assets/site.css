@@ -46,7 +46,10 @@ h1, h2, h3 {
 }
 
 .mast {
-  background: var(--assense-canvas);
+  /* A continuous brand-paper masthead gives the unchanged logo a calm home
+     in both schemes, without an isolated light rectangle. */
+  background: var(--assense-paper);
+  color: var(--assense-ink);
 }
 
 .mast-inner {
@@ -69,7 +72,7 @@ h1, h2, h3 {
 }
 
 .mast-note {
-  color: var(--assense-secondary);
+  color: var(--assense-muted);
   text-align: right;
 }
 
