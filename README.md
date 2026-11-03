@@ -40,7 +40,7 @@ docker run --rm -p 8080:80 assense-site:test
 # Open http://localhost:8080/
 ```
 
-## Before publication
+## Before publication to prd
 
 - Confirm the hosting provider, server-log behavior and retention, then replace the marked introductory notice and incomplete hosting description on both privacy pages.
 - Verify the company details on both imprint pages, especially the managing director, register number and VAT ID. The details were adapted from the old site.
