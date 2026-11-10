@@ -1,4 +1,4 @@
-FROM caddy:2.11.4-alpine
+FROM caddy:2.11.9-alpine
 
 LABEL org.opencontainers.image.source="https://github.com/Assense-Software-Solutions/assense.com"
 
